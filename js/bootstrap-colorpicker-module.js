@@ -308,6 +308,11 @@ angular.module('colorpicker.module', [])
                   $scope.$apply(ngModel.$setViewValue(newColor));
                   update(true);
                 }
+
+                var isHex = /^#[0-9A-F]{6}$/i.test(this.value)
+                if(isHex) {
+                  emitEvent('colorpicker-selected');
+                }
               });
           }
 
